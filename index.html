@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>BrightMind Academy</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="page-container">
+			<header class="header">
+				<div class="logo">
+					<img src="logo.svg" alt="BrightMind Academy Logo" />
+				</div>
+				<button
+					class="burger-menu"
+					id="burgerMenu"
+					aria-label="Toggle menu"
+				>
+					<span class="burger-line"></span>
+					<span class="burger-line"></span>
+					<span class="burger-line"></span>
+				</button>
+				<nav class="nav" id="navMenu">
+					<a href="#home">Home</a>
+					<a href="#courses">Courses</a>
+					<a href="#quote">Quote</a>
+					<a href="#contact">Contact</a>
+				</nav>
+			</header>
+
+			<section id="home" class="hero grid">
+				<div class="hero-text">
+					<h1>BrightMind Academy</h1>
+					<h3>Empowering The Nation</h3>
+					<p>
+						We provide practical skills training to uplift domestic
+						workers and gardeners. We aim to increase employability,
+						promote entrepreneurship, and build stronger communities
+						through education.
+					</p>
+				</div>
+				<div class="hero-buttons">
+					<a href="#courses" class="btn">Courses</a>
+					<a href="#quote" class="btn">Generate A Quote</a>
+				</div>
+			</section>
+
+			<section id="courses" class="courses grid">
+				<div class="course-block-month">
+					<h2>Six-Month Courses</h2>
+					<div id="sixMonthCourses" class="course-grid"></div>
+				</div>
+
+				<div class="course-block-week">
+					<h2>Six-Week Courses</h2>
+					<div id="sixWeekCourses" class="course-grid"></div>
+				</div>
+			</section>
+
+			<section id="quote" class="quote grid">
+				<h2>Create Your Quote</h2>
+				<p>
+					Now that you've reached this point you can create a quote.
+				</p>
+				<p>Discounts are available for multiple courses:</p>
+
+				<div class="discounts">
+					<div class="discount">
+						1 Course<br /><small>No discount</small>
+					</div>
+					<div class="discount">2 Courses<br /><small>5%</small></div>
+					<div class="discount">
+						3 Courses<br /><small>10%</small>
+					</div>
+					<div class="discount">
+						4 or more<br /><small>15%</small>
+					</div>
+				</div>
+
+				<form class="quote-form" id="quoteForm">
+					<div class="form-left">
+						<div class="form-group">
+							<label>Full Name</label>
+							<input
+								type="text"
+								id="fullName"
+								placeholder="Full Name"
+								required
+							/>
+						</div>
+						<div class="form-group">
+							<label>Phone Number</label>
+							<input
+								type="text"
+								id="phoneNumber"
+								placeholder="Phone Number"
+								required
+							/>
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input
+								type="email"
+								id="email"
+								placeholder="Email"
+								required
+							/>
+						</div>
+					</div>
+					<div class="form-right">
+						<div class="form-group">
+							<label>Select Courses</label>
+							<div class="custom-dropdown">
+								<button
+									type="button"
+									class="dropdown-button"
+									id="dropdownButton"
+								>
+									<span class="dropdown-text"
+										>Pick Courses</span
+									>
+									<span class="dropdown-arrow">▼</span>
+								</button>
+								<div class="dropdown-menu" id="dropdownMenu">
+									<!-- Course options will be populated here -->
+								</div>
+							</div>
+							<div class="course-select-help">
+								Click to select multiple courses
+							</div>
+							<div
+								id="selectedCourses"
+								class="selected-courses"
+							></div>
+						</div>
+					</div>
+					<button type="submit" class="btn">Request Quote</button>
+				</form>
+
+				<!-- Quote Preview Modal -->
+				<div id="quoteModal" class="modal">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3>Quote Preview</h3>
+							<span class="close">&times;</span>
+						</div>
+						<div class="modal-body">
+							<div class="quote-preview">
+								<div class="customer-info">
+									<h4>Customer Information</h4>
+									<p>
+										<strong>Name:</strong>
+										<span id="previewName"></span>
+									</p>
+									<p>
+										<strong>Phone:</strong>
+										<span id="previewPhone"></span>
+									</p>
+									<p>
+										<strong>Email:</strong>
+										<span id="previewEmail"></span>
+									</p>
+								</div>
+								<div class="selected-courses-preview">
+									<h4>Selected Courses</h4>
+									<div id="previewCourses"></div>
+								</div>
+								<div class="quote-summary">
+									<h4>Quote Summary</h4>
+									<div id="previewSummary"></div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								id="cancelQuote"
+							>
+								Cancel
+							</button>
+							<button type="button" class="btn" id="confirmQuote">
+								Confirm Quote Request
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="contact" class="contact">
+				<h2>Contact Us</h2>
+				<p>
+					Get in touch with us for more information about our courses
+					and training programs.
+				</p>
+
+				<div class="contact-info">
+					<div class="contact-item">
+						<h3>Phone</h3>
+						<p><strong>012 345 6789</strong></p>
+						<p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+					</div>
+					<div class="contact-item">
+						<h3>Email</h3>
+						<p>
+							<a href="mailto:info@empoweringthenation.co.za"
+								>info@empoweringthenation.co.za</a
+							>
+						</p>
+						<p>We'll respond within 24 hours</p>
+					</div>
+				</div>
+
+				<h3
+					style="
+						text-align: center;
+						color: var(--primary);
+						margin-bottom: 2rem;
+					"
+				>
+					Our Training Venues
+				</h3>
+				<div class="venues">
+					<div class="venue">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.234567890!2d27.901234!3d-26.248456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDE0JzU0LjQiUyAyN8KwNTQnMDQuNCJF!5e0!3m2!1sen!2sza!4v1234567890!5m2!1sen!2sza"
+							width="100%"
+							height="200"
+							style="border: 0"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							title="Soweto Location"
+						></iframe>
+						<div class="venue-info">
+							<p>123 Vilakazi Street, Soweto</p>
+						</div>
+					</div>
+					<div class="venue">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.345678901!2d28.012345!3d-26.107890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA2JzI4LjQiUyAyOMKwMDAnNDQuNCJF!5e0!3m2!1sen!2sza!4v1234567891!5m2!1sen!2sza"
+							width="100%"
+							height="200"
+							style="border: 0"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							title="Sandton Location"
+						></iframe>
+						<div class="venue-info">
+							<p>45 Katherine Drive, Sandton</p>
+						</div>
+					</div>
+					<div class="venue">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.567890123!2d28.234567!3d-25.987654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDU5JzE1LjYiUyAyOMKwMTQnMDQuNCJF!5e0!3m2!1sen!2sza!4v1234567893!5m2!1sen!2sza"
+							width="100%"
+							height="200"
+							style="border: 0"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							title="Midrand Location"
+						></iframe>
+						<div class="venue-info">
+							<p>77 New Road, Midrand</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<footer class="footer">
+			<p>© 2025 BrightMind Academy | All Rights Reserved</p>
+		</footer>
+
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script src="main.js" defer></script>
+	</body>
+</html>
